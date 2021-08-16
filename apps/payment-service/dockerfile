@@ -1,0 +1,15 @@
+FROM node:14.17-slim
+
+WORKDIR /app
+
+COPY ./dist/apps/payment-service .
+
+ENV PAYMENT_SERVICE_PORT=8875
+
+RUN npm install --production
+# dependencies that nestjs needs
+RUN npm install reflect-metadata tslib rxjs @nestjs/platform-express
+
+EXPOSE ${PAYMENT_SERVICE_PORT}
+
+CMD ["node", "./main.js"]

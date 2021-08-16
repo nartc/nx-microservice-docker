@@ -27,12 +27,30 @@
     ]
   },
   "projects": {
+    "order-api": {
+      "tags": []
+    },
+    "order-api-config-feature": {
+      "tags": []
+    },
+    "order-api-config-utils": {
+      "tags": []
+    },
     "order-web": {
       "tags": []
     },
     "order-web-e2e": {
       "tags": [],
       "implicitDependencies": ["order-web"]
+    },
+    "payment-service": {
+      "tags": []
+    },
+    "payment-service-config-feature": {
+      "tags": []
+    },
+    "payment-service-config-utils": {
+      "tags": []
     }
   }
 }

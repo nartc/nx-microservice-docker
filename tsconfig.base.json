@@ -14,7 +14,20 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx-microservice-docker/order-api/config-feature": [
+        "libs/order-api/config-feature/src/index.ts"
+      ],
+      "@nx-microservice-docker/order-api/config-utils": [
+        "libs/order-api/config-utils/src/index.ts"
+      ],
+      "@nx-microservice-docker/payment-service/config-feature": [
+        "libs/payment-service/config-feature/src/index.ts"
+      ],
+      "@nx-microservice-docker/payment-service/config-utils": [
+        "libs/payment-service/config-utils/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
