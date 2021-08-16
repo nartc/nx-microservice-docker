@@ -1,1 +1,2 @@
-export * from './lib/payment-service-config-utils.module';
+export * from './lib/payment-service.configuration';
+export * from './lib/payment-service.di';
