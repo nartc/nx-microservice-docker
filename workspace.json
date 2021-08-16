@@ -352,6 +352,72 @@
           }
         }
       }
+    },
+    "payment-service-payment-data-access": {
+      "root": "libs/payment-service/payment-data-access",
+      "sourceRoot": "libs/payment-service/payment-data-access/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/payment-service/payment-data-access",
+            "tsConfig": "libs/payment-service/payment-data-access/tsconfig.lib.json",
+            "packageJson": "libs/payment-service/payment-data-access/package.json",
+            "main": "libs/payment-service/payment-data-access/src/index.ts",
+            "assets": ["libs/payment-service/payment-data-access/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/payment-service/payment-data-access/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/payment-service/payment-data-access"],
+          "options": {
+            "jestConfig": "libs/payment-service/payment-data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "payment-service-payment-feature": {
+      "root": "libs/payment-service/payment-feature",
+      "sourceRoot": "libs/payment-service/payment-feature/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/payment-service/payment-feature",
+            "tsConfig": "libs/payment-service/payment-feature/tsconfig.lib.json",
+            "packageJson": "libs/payment-service/payment-feature/package.json",
+            "main": "libs/payment-service/payment-feature/src/index.ts",
+            "assets": ["libs/payment-service/payment-feature/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/payment-service/payment-feature/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/payment-service/payment-feature"],
+          "options": {
+            "jestConfig": "libs/payment-service/payment-feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

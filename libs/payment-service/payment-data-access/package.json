@@ -1,0 +1,4 @@
+{
+  "name": "@nx-microservice-docker/payment-service/payment-data-access",
+  "version": "0.0.1"
+}

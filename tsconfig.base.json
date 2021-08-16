@@ -26,6 +26,12 @@
       ],
       "@nx-microservice-docker/payment-service/config-utils": [
         "libs/payment-service/config-utils/src/index.ts"
+      ],
+      "@nx-microservice-docker/payment-service/payment-data-access": [
+        "libs/payment-service/payment-data-access/src/index.ts"
+      ],
+      "@nx-microservice-docker/payment-service/payment-feature": [
+        "libs/payment-service/payment-feature/src/index.ts"
       ]
     }
   },

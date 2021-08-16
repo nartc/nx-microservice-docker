@@ -51,6 +51,12 @@
     },
     "payment-service-config-utils": {
       "tags": []
+    },
+    "payment-service-payment-data-access": {
+      "tags": []
+    },
+    "payment-service-payment-feature": {
+      "tags": []
     }
   }
 }
