@@ -9,7 +9,7 @@ ENV ORDER_SERVICE_PORT=8876
 
 RUN npm install --production
 # dependencies that nestjs needs
-RUN npm install reflect-metadata tslib rxjs @nestjs/platform-express
+RUN npm install tslib
 
 EXPOSE ${ORDER_API_PORT}
 EXPOSE ${ORDER_SERVICE_PORT}

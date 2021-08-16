@@ -5,16 +5,34 @@
 
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import {
+  paymentServiceConfiguration,
+  PaymentServiceConfiguration,
+} from '@nx-microservice-docker/payment-service/config-utils';
 
 import { AppModule } from './app/app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
-  const port = process.env.PORT || 3333;
-  await app.listen(port, () => {
-    Logger.log('Listening at http://localhost:' + port + '/' + globalPrefix);
+
+  const paymentServiceConfig = app.get<PaymentServiceConfiguration>(
+    paymentServiceConfiguration.KEY
+  );
+
+  app.connectMicroservice<MicroserviceOptions>({
+    transport: Transport.TCP,
+    options: {
+      host: paymentServiceConfig.host,
+      port: paymentServiceConfig.port,
+    },
+  });
+
+  await app.startAllMicroservicesAsync().then(() => {
+    Logger.log(
+      `PaymentService started on ${paymentServiceConfig.host}:${paymentServiceConfig.port}`,
+      'PaymentService'
+    );
   });
 }
 
