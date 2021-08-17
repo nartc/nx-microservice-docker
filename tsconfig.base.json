@@ -21,6 +21,12 @@
       "@nx-microservice-docker/order-api/config-utils": [
         "libs/order-api/config-utils/src/index.ts"
       ],
+      "@nx-microservice-docker/order-api/order-data-access": [
+        "libs/order-api/order-data-access/src/index.ts"
+      ],
+      "@nx-microservice-docker/order-api/order-feature": [
+        "libs/order-api/order-feature/src/index.ts"
+      ],
       "@nx-microservice-docker/payment-service/config-feature": [
         "libs/payment-service/config-feature/src/index.ts"
       ],
@@ -32,6 +38,12 @@
       ],
       "@nx-microservice-docker/payment-service/payment-feature": [
         "libs/payment-service/payment-feature/src/index.ts"
+      ],
+      "@nx-microservice-docker/shared/api-data-access": [
+        "libs/shared/api-data-access/src/index.ts"
+      ],
+      "@nx-microservice-docker/shared/config-utils": [
+        "libs/shared/config-utils/src/index.ts"
       ]
     }
   },

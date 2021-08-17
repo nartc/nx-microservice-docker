@@ -1,7 +1,10 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { PaymentStatus } from '@nx-microservice-docker/payment-service/payment-data-access';
-import { PaymentDetailsDto, PayOrderDto } from './dto';
+import {
+  PaymentDetailsDto,
+  PaymentStatus,
+  PayOrderDto,
+} from '@nx-microservice-docker/shared/api-data-access';
 
 let canceledPayments: string[] = [];
 
@@ -12,11 +15,7 @@ export class PaymentService {
   constructor(@Inject('ORDER_SERVICE') private orderService: ClientProxy) {}
 
   initiatePayment(order: PayOrderDto): string {
-    const payment: PaymentDetailsDto = {
-      orderId: order.id,
-      status: PaymentStatus.declined,
-      transactionId: Date.now().toString(),
-    };
+    const payment = new PaymentDetailsDto(order.id);
 
     if (order.status !== 'created') throw 'Wrong Order Status';
 

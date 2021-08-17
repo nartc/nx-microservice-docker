@@ -36,6 +36,12 @@
     "order-api-config-utils": {
       "tags": []
     },
+    "order-api-order-data-access": {
+      "tags": []
+    },
+    "order-api-order-feature": {
+      "tags": []
+    },
     "order-web": {
       "tags": []
     },
@@ -56,6 +62,12 @@
       "tags": []
     },
     "payment-service-payment-feature": {
+      "tags": []
+    },
+    "shared-api-data-access": {
+      "tags": []
+    },
+    "shared-config-utils": {
       "tags": []
     }
   }

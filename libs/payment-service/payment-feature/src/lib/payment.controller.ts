@@ -1,9 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { EventPattern, MessagePattern } from '@nestjs/microservices';
-import {
-  PaymentService,
-  PayOrderDto,
-} from '@nx-microservice-docker/payment-service/payment-data-access';
+import { PaymentService } from '@nx-microservice-docker/payment-service/payment-data-access';
+import { PayOrderDto } from '@nx-microservice-docker/shared/api-data-access';
 
 @Controller('payments')
 export class PaymentController {

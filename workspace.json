@@ -116,6 +116,70 @@
         }
       }
     },
+    "order-api-order-data-access": {
+      "root": "libs/order-api/order-data-access",
+      "sourceRoot": "libs/order-api/order-data-access/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/order-api/order-data-access",
+            "tsConfig": "libs/order-api/order-data-access/tsconfig.lib.json",
+            "packageJson": "libs/order-api/order-data-access/package.json",
+            "main": "libs/order-api/order-data-access/src/index.ts",
+            "assets": ["libs/order-api/order-data-access/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/order-api/order-data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/order-api/order-data-access"],
+          "options": {
+            "jestConfig": "libs/order-api/order-data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "order-api-order-feature": {
+      "root": "libs/order-api/order-feature",
+      "sourceRoot": "libs/order-api/order-feature/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/order-api/order-feature",
+            "tsConfig": "libs/order-api/order-feature/tsconfig.lib.json",
+            "packageJson": "libs/order-api/order-feature/package.json",
+            "main": "libs/order-api/order-feature/src/index.ts",
+            "assets": ["libs/order-api/order-feature/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/order-api/order-feature/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/order-api/order-feature"],
+          "options": {
+            "jestConfig": "libs/order-api/order-feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "order-web": {
       "projectType": "application",
       "root": "apps/order-web",
@@ -414,6 +478,70 @@
           "outputs": ["coverage/libs/payment-service/payment-feature"],
           "options": {
             "jestConfig": "libs/payment-service/payment-feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-api-data-access": {
+      "root": "libs/shared/api-data-access",
+      "sourceRoot": "libs/shared/api-data-access/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/api-data-access",
+            "tsConfig": "libs/shared/api-data-access/tsconfig.lib.json",
+            "packageJson": "libs/shared/api-data-access/package.json",
+            "main": "libs/shared/api-data-access/src/index.ts",
+            "assets": ["libs/shared/api-data-access/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/api-data-access/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/api-data-access"],
+          "options": {
+            "jestConfig": "libs/shared/api-data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-config-utils": {
+      "root": "libs/shared/config-utils",
+      "sourceRoot": "libs/shared/config-utils/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/config-utils",
+            "tsConfig": "libs/shared/config-utils/tsconfig.lib.json",
+            "packageJson": "libs/shared/config-utils/package.json",
+            "main": "libs/shared/config-utils/src/index.ts",
+            "assets": ["libs/shared/config-utils/*.md"]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/config-utils/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/config-utils"],
+          "options": {
+            "jestConfig": "libs/shared/config-utils/jest.config.js",
             "passWithNoTests": true
           }
         }

@@ -5,6 +5,7 @@ import {
   orderServiceConfiguration,
 } from '@nx-microservice-docker/order-api/config-utils';
 import { paymentServiceConfiguration } from '@nx-microservice-docker/payment-service/config-utils';
+import { dbConfiguration } from '@nx-microservice-docker/shared/config-utils';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { paymentServiceConfiguration } from '@nx-microservice-docker/payment-ser
         orderApiConfiguration,
         orderServiceConfiguration,
         paymentServiceConfiguration,
+        dbConfiguration,
       ],
     }),
   ],
