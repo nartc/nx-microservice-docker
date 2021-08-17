@@ -17,6 +17,19 @@ This project is a sample application with microservice architecture, websocket, 
 - `npm run build:all` to build all apps
 - `npm run start:dev`. Alternatively, you can also invoke `docker-compose up` directly from the terminal
 
+# Ports
+
+- Order:
+
+  - Frontend: `localhost:8080`
+  - API: `localhost:8877/api`
+  - SwaggerUI: `localhost:8877/api/docs`
+  - Websocket: `localhost:8877`
+  - Microservice: `localhost:8876`
+
+- Payment:
+  - Microservice: `localhost:8875`
+
 # References
 
 - [NestJS Microservices Docker](https://github.com/alibghz/nestjs-microservices-docker)
