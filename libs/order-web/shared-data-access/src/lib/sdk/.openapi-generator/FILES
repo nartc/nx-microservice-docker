@@ -1,0 +1,14 @@
+.gitignore
+README.md
+api.module.ts
+api/api.ts
+api/orders.service.ts
+configuration.ts
+encoder.ts
+git_push.sh
+index.ts
+model/createOrderDto.ts
+model/models.ts
+model/order.ts
+model/orderStatus.ts
+variables.ts

@@ -2,7 +2,7 @@ import { WebSocketGateway, WebSocketServer } from '@nestjs/websockets';
 import { Server } from 'socket.io';
 import { OrderDocument } from './schemas';
 
-@WebSocketGateway()
+@WebSocketGateway({ cors: true })
 export class OrderGateway {
   @WebSocketServer()
   wss: Server;

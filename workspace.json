@@ -208,8 +208,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -276,6 +276,47 @@
         }
       }
     },
+    "order-web-dashboard-feature": {
+      "projectType": "library",
+      "root": "libs/order-web/dashboard-feature",
+      "sourceRoot": "libs/order-web/dashboard-feature/src",
+      "prefix": "nx-microservice-docker",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/order-web/dashboard-feature"],
+          "options": {
+            "project": "libs/order-web/dashboard-feature/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/order-web/dashboard-feature/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/order-web/dashboard-feature/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/order-web/dashboard-feature"],
+          "options": {
+            "jestConfig": "libs/order-web/dashboard-feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/order-web/dashboard-feature/src/**/*.ts",
+              "libs/order-web/dashboard-feature/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "order-web-e2e": {
       "root": "apps/order-web-e2e",
       "sourceRoot": "apps/order-web-e2e/src",
@@ -298,6 +339,170 @@
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/order-web-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "order-web-order-feature": {
+      "projectType": "library",
+      "root": "libs/order-web/order-feature",
+      "sourceRoot": "libs/order-web/order-feature/src",
+      "prefix": "order-web",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/order-web/order-feature"],
+          "options": {
+            "project": "libs/order-web/order-feature/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/order-web/order-feature/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/order-web/order-feature/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/order-web/order-feature"],
+          "options": {
+            "jestConfig": "libs/order-web/order-feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/order-web/order-feature/src/**/*.ts",
+              "libs/order-web/order-feature/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "order-web-order-ui-add-order-modal": {
+      "projectType": "library",
+      "root": "libs/order-web/order-ui/add-order-modal",
+      "sourceRoot": "libs/order-web/order-ui/add-order-modal/src",
+      "prefix": "order-web",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/order-web/order-ui/add-order-modal"],
+          "options": {
+            "project": "libs/order-web/order-ui/add-order-modal/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/order-web/order-ui/add-order-modal/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/order-web/order-ui/add-order-modal/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/order-web/order-ui/add-order-modal"],
+          "options": {
+            "jestConfig": "libs/order-web/order-ui/add-order-modal/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/order-web/order-ui/add-order-modal/src/**/*.ts",
+              "libs/order-web/order-ui/add-order-modal/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "order-web-order-ui-view-order-modal": {
+      "projectType": "library",
+      "root": "libs/order-web/order-ui/view-order-modal",
+      "sourceRoot": "libs/order-web/order-ui/view-order-modal/src",
+      "prefix": "nx-microservice-docker",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/order-web/order-ui/view-order-modal"],
+          "options": {
+            "project": "libs/order-web/order-ui/view-order-modal/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/order-web/order-ui/view-order-modal/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/order-web/order-ui/view-order-modal/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/order-web/order-ui/view-order-modal"],
+          "options": {
+            "jestConfig": "libs/order-web/order-ui/view-order-modal/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/order-web/order-ui/view-order-modal/src/**/*.ts",
+              "libs/order-web/order-ui/view-order-modal/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "order-web-shared-data-access": {
+      "projectType": "library",
+      "root": "libs/order-web/shared-data-access",
+      "sourceRoot": "libs/order-web/shared-data-access/src",
+      "prefix": "nx-microservice-docker",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/angular:ng-packagr-lite",
+          "outputs": ["dist/libs/order-web/shared-data-access"],
+          "options": {
+            "project": "libs/order-web/shared-data-access/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/order-web/shared-data-access/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/order-web/shared-data-access/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/order-web/shared-data-access"],
+          "options": {
+            "jestConfig": "libs/order-web/shared-data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/order-web/shared-data-access/src/**/*.ts",
+              "libs/order-web/shared-data-access/src/**/*.html"
+            ]
           }
         }
       }

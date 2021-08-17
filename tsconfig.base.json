@@ -27,6 +27,21 @@
       "@nx-microservice-docker/order-api/order-feature": [
         "libs/order-api/order-feature/src/index.ts"
       ],
+      "@nx-microservice-docker/order-web/dashboard-feature": [
+        "libs/order-web/dashboard-feature/src/index.ts"
+      ],
+      "@nx-microservice-docker/order-web/order-feature": [
+        "libs/order-web/order-feature/src/index.ts"
+      ],
+      "@nx-microservice-docker/order-web/order-ui/add-order-modal": [
+        "libs/order-web/order-ui/add-order-modal/src/index.ts"
+      ],
+      "@nx-microservice-docker/order-web/order-ui/view-order-modal": [
+        "libs/order-web/order-ui/view-order-modal/src/index.ts"
+      ],
+      "@nx-microservice-docker/order-web/shared-data-access": [
+        "libs/order-web/shared-data-access/src/index.ts"
+      ],
       "@nx-microservice-docker/payment-service/config-feature": [
         "libs/payment-service/config-feature/src/index.ts"
       ],

@@ -4,6 +4,9 @@
 
 export const environment = {
   production: false,
+  orderApiProtocol: 'http://',
+  orderApiHost: 'localhost',
+  orderApiPort: '8877',
 };
 
 /*

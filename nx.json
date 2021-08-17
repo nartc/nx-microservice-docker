@@ -45,9 +45,24 @@
     "order-web": {
       "tags": []
     },
+    "order-web-dashboard-feature": {
+      "tags": []
+    },
     "order-web-e2e": {
       "tags": [],
       "implicitDependencies": ["order-web"]
+    },
+    "order-web-order-feature": {
+      "tags": []
+    },
+    "order-web-order-ui-add-order-modal": {
+      "tags": []
+    },
+    "order-web-order-ui-view-order-modal": {
+      "tags": []
+    },
+    "order-web-shared-data-access": {
+      "tags": []
     },
     "payment-service": {
       "tags": []

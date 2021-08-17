@@ -17,7 +17,7 @@ export class Order {
   @ApiProperty()
   transactionId: string;
   @ApiProperty()
-  id: string;
+  _id: string;
 }
 
 export type OrderDocument = Order & Document;
