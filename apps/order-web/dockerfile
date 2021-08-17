@@ -1,0 +1,5 @@
+FROM nginx:latest
+
+COPY ./dist/apps/order-web /usr/share/nginx/html
+
+EXPOSE 80
