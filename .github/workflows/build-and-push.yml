@@ -11,11 +11,8 @@ env:
   ACTOR: ${{ github.actor }}
   SHOULD_PUSH: ${{ github.event_name != 'pull_request' }}
 jobs:
-  build-and-push:
+  build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        service: [ 'order-web', 'order-api', 'payment-service' ]
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
@@ -35,128 +32,113 @@ jobs:
           username: ${{ env.ACTOR }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: nx-order-artifacts
+          path: |
+            ./apps/**/dockerfile
+            ./dist
+            ./nginx.order-web.conf
+  build-docker-web:
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      #      - name: Authenticate against Github CR
+      #        uses: docker/login-action@v1
+      #        with:
+      #          registry: ${{ env.REGISTRY }}
+      #          username: ${{ env.ACTOR }}
+      #          password: ${{ secrets.GITHUB_TOKEN }}
+      #
+      #      - name: Setup Docker BuildX
+      #        uses: docker/setup-buildx-action@v1
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: nx-order-artifacts
+
       - name: Extract metadata
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ env.ACTOR }}/${{ matrix.service }}
+          images: ${{ env.REGISTRY}}/${{ env.ACTOR }}/order-web
 
       - name: Build and Push Web Dockerfile
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./apps/${{ matrix.service }}/dockerfile
+          file: ./apps/order-web/dockerfile
           push: ${{ env.SHOULD_PUSH }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+  build-docker-order:
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      #      - name: Authenticate against Github CR
+      #        uses: docker/login-action@v1
+      #        with:
+      #          registry: ${{ env.REGISTRY }}
+      #          username: ${{ env.ACTOR }}
+      #          password: ${{ secrets.GITHUB_TOKEN }}
+      #
+      #      - name: Setup Docker BuildX
+      #        uses: docker/setup-buildx-action@v1
 
-  #      - name: Upload Artifacts
-  #        uses: actions/upload-artifact@v2
-  #        with:
-  #          name: nx-order-artifacts
-  #          path: |
-  #            ./apps/**/dockerfile
-  #            ./dist
-  #            ./nginx.order-web.conf
-#  build-docker-web:
-#    needs:
-#      - build
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Authenticate against Github CR
-#        uses: docker/login-action@v1
-#        with:
-#          registry: ${{ env.REGISTRY }}
-#          username: ${{ env.ACTOR }}
-#          password: ${{ secrets.GITHUB_TOKEN }}
-#
-#      - name: Setup Docker BuildX
-#        uses: docker/setup-buildx-action@v1
-#
-#      - name: Download Artifacts
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: nx-order-artifacts
-#
-#      - name: Extract metadata
-#        id: meta
-#        uses: docker/metadata-action@v3
-#        with:
-#          images: ${{ env.ACTOR }}/order-web
-#
-#      - name: Build and Push Web Dockerfile
-#        uses: docker/build-push-action@v2
-#        with:
-#          context: .
-#          file: ./apps/order-web/dockerfile
-#          push: ${{ env.SHOULD_PUSH }}
-#          tags: ${{ steps.meta.outputs.tags }}
-#          labels: ${{ steps.meta.outputs.labels }}
-#  build-docker-order:
-#    needs:
-#      - build
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Authenticate against Github CR
-#        uses: docker/login-action@v1
-#        with:
-#          registry: ${{ env.REGISTRY }}
-#          username: ${{ env.ACTOR }}
-#          password: ${{ secrets.GITHUB_TOKEN }}
-#
-#      - name: Setup Docker BuildX
-#        uses: docker/setup-buildx-action@v1
-#
-#      - name: Download Artifacts
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: nx-order-artifacts
-#
-#      - name: Extract metadata
-#        id: meta
-#        uses: docker/metadata-action@v3
-#        with:
-#          images: ${{ env.ACTOR }}/order-api
-#
-#      - name: Build and Push Order API Dockerfile
-#        uses: docker/build-push-action@v2
-#        with:
-#          context: .
-#          file: ./apps/order-api/dockerfile
-#          push: ${{ env.SHOULD_PUSH }}
-#          tags: ${{ steps.meta.outputs.tags }}
-#          labels: ${{ steps.meta.outputs.labels }}
-#  build-docker-payment:
-#    needs:
-#      - build
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Authenticate against Github CR
-#        uses: docker/login-action@v1
-#        with:
-#          registry: ${{ env.REGISTRY }}
-#          username: ${{ env.ACTOR }}
-#          password: ${{ secrets.GITHUB_TOKEN }}
-#
-#      - name: Setup Docker BuildX
-#        uses: docker/setup-buildx-action@v1
-#
-#      - name: Download Artifacts
-#        uses: actions/download-artifact@v2
-#        with:
-#          name: nx-order-artifacts
-#
-#      - name: Extract metadata
-#        id: meta
-#        uses: docker/metadata-action@v3
-#        with:
-#          images: ${{ env.ACTOR }}/payment-service
-#
-#      - name: Build and Push Payment Service Dockerfile
-#        uses: docker/build-push-action@v2
-#        with:
-#          context: .
-#          file: ./apps/payment-service/dockerfile
-#          push: ${{ env.SHOULD_PUSH }}
-#          tags: ${{ steps.meta.outputs.tags }}
-#          labels: ${{ steps.meta.outputs.labels }}
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: nx-order-artifacts
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ env.REGISTRY}}/${{ env.ACTOR }}/order-api
+
+      - name: Build and Push Order API Dockerfile
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./apps/order-api/dockerfile
+          push: ${{ env.SHOULD_PUSH }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+  build-docker-payment:
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      #      - name: Authenticate against Github CR
+      #        uses: docker/login-action@v1
+      #        with:
+      #          registry: ${{ env.REGISTRY }}
+      #          username: ${{ env.ACTOR }}
+      #          password: ${{ secrets.GITHUB_TOKEN }}
+      #
+      #      - name: Setup Docker BuildX
+      #        uses: docker/setup-buildx-action@v1
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: nx-order-artifacts
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ env.REGISTRY}}/${{ env.ACTOR }}/payment-service
+
+      - name: Build and Push Payment Service Dockerfile
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./apps/payment-service/dockerfile
+          push: ${{ env.SHOULD_PUSH }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
