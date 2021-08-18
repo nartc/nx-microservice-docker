@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { OrderWebOrderUiAddOrderModalModule } from '@nx-microservice-docker/order-web/order-ui/add-order-modal';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzIconModule } from 'ng-zorro-antd/icon';
@@ -19,7 +18,6 @@ import { OrdersComponent } from './orders.component';
     NzTypographyModule,
     NzNotificationModule,
     NzModalModule,
-    OrderWebOrderUiAddOrderModalModule,
     NzButtonModule,
     NzDividerModule,
     NzTableModule,
