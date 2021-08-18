@@ -33,7 +33,7 @@ This project is a sample application with microservice architecture, websocket, 
 
 # References
 
-👇 See demo here
+👇 See demo here 👇
 
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](http://147.182.253.160:8080/dashboard)
 
