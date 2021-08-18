@@ -10,18 +10,19 @@ This project is a sample application with microservice architecture, websocket, 
 
 - Docker
 
-# Steps
+# Local Development
 
 - Clone this repo
 - `npm install`
-- `npm run build:all` to build all apps
-- `npm run start:dev`. Alternatively, you can also invoke `docker-compose up` directly from the terminal
+- `npm run start:dev`
+
+> There is a `proxy.conf` for local development that will proxy the `/api` and `/socket.io` to `localhost:8877`
 
 # Ports
 
 - Order:
 
-  - Frontend: `localhost:8080`
+  - Frontend: `localhost:4200`
   - API: `localhost:8877/api`
   - SwaggerUI: `localhost:8877/api/docs`
   - Websocket: `localhost:8877`
