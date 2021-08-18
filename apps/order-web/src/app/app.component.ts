@@ -31,7 +31,7 @@ import { Component } from '@angular/core';
       }
 
       [nz-menu] {
-        line-height: 64px;
+        line-height: 4rem;
       }
 
       nz-layout {
