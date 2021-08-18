@@ -27,7 +27,7 @@
     "postinstall": "ngcc --properties es2015 browser module main",
     "api:gen": "openapi-generator-cli generate -i http://localhost:8877/api/docs-json -g typescript-angular -o libs/order-web/shared-data-access/src/lib/sdk -c openapi-generator-ts-angular.config.json",
     "build:all": "nx run-many --target=build --all --parallel",
-    "start:dev": "docker-compose up"
+    "start:dev": "nx run order-api:serve-all"
   },
   "private": true,
   "dependencies": {
@@ -45,7 +45,7 @@
     "@nestjs/microservices": "7.6.18",
     "@nestjs/mongoose": "^8.0.1",
     "@nestjs/platform-express": "^7.0.0",
-    "@nestjs/platform-socket.io": "7.6.18",
+    "@nestjs/platform-socket.io": "8.0.6",
     "@nestjs/swagger": "^4.8.2",
     "@nestjs/websockets": "7.6.18",
     "@ngrx/component-store": "^12.4.0",

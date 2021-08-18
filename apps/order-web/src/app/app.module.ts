@@ -9,7 +9,6 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { SocketIoModule } from 'ngx-socket-io';
-import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
@@ -25,7 +24,9 @@ import { routes } from './app.routes';
     NzTypographyModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    SocketIoModule.forRoot({ url: '' }),
+    SocketIoModule.forRoot({
+      url: '',
+    }),
   ],
   providers: [
     {

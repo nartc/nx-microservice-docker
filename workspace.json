@@ -8,12 +8,16 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/order-api",
             "main": "apps/order-api/src/main.ts",
             "tsConfig": "apps/order-api/tsconfig.app.json",
-            "assets": ["apps/order-api/src/assets"],
+            "assets": [
+              "apps/order-api/src/assets"
+            ],
             "generatePackageJson": true
           },
           "configurations": {
@@ -39,15 +43,28 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/order-api/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/order-api/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/order-api"],
+          "outputs": [
+            "coverage/apps/order-api"
+          ],
           "options": {
             "jestConfig": "apps/order-api/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "serve-all": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "nx run-many --target=serve --all --parallel",
+              "docker-compose -f docker-compose.local.yml up"
+            ]
           }
         }
       }
@@ -59,24 +76,32 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/order-api/config-feature",
             "tsConfig": "libs/order-api/config-feature/tsconfig.lib.json",
             "packageJson": "libs/order-api/config-feature/package.json",
             "main": "libs/order-api/config-feature/src/index.ts",
-            "assets": ["libs/order-api/config-feature/*.md"]
+            "assets": [
+              "libs/order-api/config-feature/*.md"
+            ]
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/order-api/config-feature/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/order-api/config-feature/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/order-api/config-feature"],
+          "outputs": [
+            "coverage/libs/order-api/config-feature"
+          ],
           "options": {
             "jestConfig": "libs/order-api/config-feature/jest.config.js",
             "passWithNoTests": true
@@ -91,24 +116,32 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/order-api/config-utils",
             "tsConfig": "libs/order-api/config-utils/tsconfig.lib.json",
             "packageJson": "libs/order-api/config-utils/package.json",
             "main": "libs/order-api/config-utils/src/index.ts",
-            "assets": ["libs/order-api/config-utils/*.md"]
+            "assets": [
+              "libs/order-api/config-utils/*.md"
+            ]
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/order-api/config-utils/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/order-api/config-utils/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/order-api/config-utils"],
+          "outputs": [
+            "coverage/libs/order-api/config-utils"
+          ],
           "options": {
             "jestConfig": "libs/order-api/config-utils/jest.config.js",
             "passWithNoTests": true
@@ -123,24 +156,32 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/order-api/order-data-access",
             "tsConfig": "libs/order-api/order-data-access/tsconfig.lib.json",
             "packageJson": "libs/order-api/order-data-access/package.json",
             "main": "libs/order-api/order-data-access/src/index.ts",
-            "assets": ["libs/order-api/order-data-access/*.md"]
+            "assets": [
+              "libs/order-api/order-data-access/*.md"
+            ]
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/order-api/order-data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/order-api/order-data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/order-api/order-data-access"],
+          "outputs": [
+            "coverage/libs/order-api/order-data-access"
+          ],
           "options": {
             "jestConfig": "libs/order-api/order-data-access/jest.config.js",
             "passWithNoTests": true
@@ -155,24 +196,32 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/order-api/order-feature",
             "tsConfig": "libs/order-api/order-feature/tsconfig.lib.json",
             "packageJson": "libs/order-api/order-feature/package.json",
             "main": "libs/order-api/order-feature/src/index.ts",
-            "assets": ["libs/order-api/order-feature/*.md"]
+            "assets": [
+              "libs/order-api/order-feature/*.md"
+            ]
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/order-api/order-feature/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/order-api/order-feature/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/order-api/order-feature"],
+          "outputs": [
+            "coverage/libs/order-api/order-feature"
+          ],
           "options": {
             "jestConfig": "libs/order-api/order-feature/jest.config.js",
             "passWithNoTests": true
@@ -188,7 +237,9 @@
       "targets": {
         "build": {
           "executor": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/order-web",
             "index": "apps/order-web/src/index.html",
@@ -200,7 +251,9 @@
               "apps/order-web/src/favicon.ico",
               "apps/order-web/src/assets"
             ],
-            "styles": ["apps/order-web/src/styles.scss"],
+            "styles": [
+              "apps/order-web/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -268,7 +321,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/order-web"],
+          "outputs": [
+            "coverage/apps/order-web"
+          ],
           "options": {
             "jestConfig": "apps/order-web/jest.config.js",
             "passWithNoTests": true
@@ -284,7 +339,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/order-web/dashboard-feature"],
+          "outputs": [
+            "dist/libs/order-web/dashboard-feature"
+          ],
           "options": {
             "project": "libs/order-web/dashboard-feature/ng-package.json"
           },
@@ -300,7 +357,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/order-web/dashboard-feature"],
+          "outputs": [
+            "coverage/libs/order-web/dashboard-feature"
+          ],
           "options": {
             "jestConfig": "libs/order-web/dashboard-feature/jest.config.js",
             "passWithNoTests": true
@@ -338,7 +397,9 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/order-web-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/order-web-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -351,7 +412,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/order-web/order-feature"],
+          "outputs": [
+            "dist/libs/order-web/order-feature"
+          ],
           "options": {
             "project": "libs/order-web/order-feature/ng-package.json"
           },
@@ -367,7 +430,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/order-web/order-feature"],
+          "outputs": [
+            "coverage/libs/order-web/order-feature"
+          ],
           "options": {
             "jestConfig": "libs/order-web/order-feature/jest.config.js",
             "passWithNoTests": true
@@ -392,7 +457,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/order-web/order-ui/add-order-modal"],
+          "outputs": [
+            "dist/libs/order-web/order-ui/add-order-modal"
+          ],
           "options": {
             "project": "libs/order-web/order-ui/add-order-modal/ng-package.json"
           },
@@ -408,7 +475,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/order-web/order-ui/add-order-modal"],
+          "outputs": [
+            "coverage/libs/order-web/order-ui/add-order-modal"
+          ],
           "options": {
             "jestConfig": "libs/order-web/order-ui/add-order-modal/jest.config.js",
             "passWithNoTests": true
@@ -433,7 +502,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/order-web/order-ui/view-order-modal"],
+          "outputs": [
+            "dist/libs/order-web/order-ui/view-order-modal"
+          ],
           "options": {
             "project": "libs/order-web/order-ui/view-order-modal/ng-package.json"
           },
@@ -449,7 +520,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/order-web/order-ui/view-order-modal"],
+          "outputs": [
+            "coverage/libs/order-web/order-ui/view-order-modal"
+          ],
           "options": {
             "jestConfig": "libs/order-web/order-ui/view-order-modal/jest.config.js",
             "passWithNoTests": true
@@ -474,7 +547,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/angular:ng-packagr-lite",
-          "outputs": ["dist/libs/order-web/shared-data-access"],
+          "outputs": [
+            "dist/libs/order-web/shared-data-access"
+          ],
           "options": {
             "project": "libs/order-web/shared-data-access/ng-package.json"
           },
@@ -490,7 +565,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/order-web/shared-data-access"],
+          "outputs": [
+            "coverage/libs/order-web/shared-data-access"
+          ],
           "options": {
             "jestConfig": "libs/order-web/shared-data-access/jest.config.js",
             "passWithNoTests": true
@@ -514,12 +591,16 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/payment-service",
             "main": "apps/payment-service/src/main.ts",
             "tsConfig": "apps/payment-service/tsconfig.app.json",
-            "assets": ["apps/payment-service/src/assets"],
+            "assets": [
+              "apps/payment-service/src/assets"
+            ],
             "generatePackageJson": true
           },
           "configurations": {
@@ -545,12 +626,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/payment-service/**/*.ts"]
+            "lintFilePatterns": [
+              "apps/payment-service/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/payment-service"],
+          "outputs": [
+            "coverage/apps/payment-service"
+          ],
           "options": {
             "jestConfig": "apps/payment-service/jest.config.js",
             "passWithNoTests": true
@@ -565,24 +650,32 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/payment-service/config-feature",
             "tsConfig": "libs/payment-service/config-feature/tsconfig.lib.json",
             "packageJson": "libs/payment-service/config-feature/package.json",
             "main": "libs/payment-service/config-feature/src/index.ts",
-            "assets": ["libs/payment-service/config-feature/*.md"]
+            "assets": [
+              "libs/payment-service/config-feature/*.md"
+            ]
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/payment-service/config-feature/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/payment-service/config-feature/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/payment-service/config-feature"],
+          "outputs": [
+            "coverage/libs/payment-service/config-feature"
+          ],
           "options": {
             "jestConfig": "libs/payment-service/config-feature/jest.config.js",
             "passWithNoTests": true
@@ -597,24 +690,32 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/payment-service/config-utils",
             "tsConfig": "libs/payment-service/config-utils/tsconfig.lib.json",
             "packageJson": "libs/payment-service/config-utils/package.json",
             "main": "libs/payment-service/config-utils/src/index.ts",
-            "assets": ["libs/payment-service/config-utils/*.md"]
+            "assets": [
+              "libs/payment-service/config-utils/*.md"
+            ]
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/payment-service/config-utils/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/payment-service/config-utils/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/payment-service/config-utils"],
+          "outputs": [
+            "coverage/libs/payment-service/config-utils"
+          ],
           "options": {
             "jestConfig": "libs/payment-service/config-utils/jest.config.js",
             "passWithNoTests": true
@@ -629,13 +730,17 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/payment-service/payment-data-access",
             "tsConfig": "libs/payment-service/payment-data-access/tsconfig.lib.json",
             "packageJson": "libs/payment-service/payment-data-access/package.json",
             "main": "libs/payment-service/payment-data-access/src/index.ts",
-            "assets": ["libs/payment-service/payment-data-access/*.md"]
+            "assets": [
+              "libs/payment-service/payment-data-access/*.md"
+            ]
           }
         },
         "lint": {
@@ -648,7 +753,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/payment-service/payment-data-access"],
+          "outputs": [
+            "coverage/libs/payment-service/payment-data-access"
+          ],
           "options": {
             "jestConfig": "libs/payment-service/payment-data-access/jest.config.js",
             "passWithNoTests": true
@@ -663,24 +770,32 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/payment-service/payment-feature",
             "tsConfig": "libs/payment-service/payment-feature/tsconfig.lib.json",
             "packageJson": "libs/payment-service/payment-feature/package.json",
             "main": "libs/payment-service/payment-feature/src/index.ts",
-            "assets": ["libs/payment-service/payment-feature/*.md"]
+            "assets": [
+              "libs/payment-service/payment-feature/*.md"
+            ]
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/payment-service/payment-feature/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/payment-service/payment-feature/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/payment-service/payment-feature"],
+          "outputs": [
+            "coverage/libs/payment-service/payment-feature"
+          ],
           "options": {
             "jestConfig": "libs/payment-service/payment-feature/jest.config.js",
             "passWithNoTests": true
@@ -695,24 +810,32 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/shared/api-data-access",
             "tsConfig": "libs/shared/api-data-access/tsconfig.lib.json",
             "packageJson": "libs/shared/api-data-access/package.json",
             "main": "libs/shared/api-data-access/src/index.ts",
-            "assets": ["libs/shared/api-data-access/*.md"]
+            "assets": [
+              "libs/shared/api-data-access/*.md"
+            ]
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/shared/api-data-access/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/shared/api-data-access/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/api-data-access"],
+          "outputs": [
+            "coverage/libs/shared/api-data-access"
+          ],
           "options": {
             "jestConfig": "libs/shared/api-data-access/jest.config.js",
             "passWithNoTests": true
@@ -727,24 +850,32 @@
       "targets": {
         "build": {
           "executor": "@nrwl/node:package",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/libs/shared/config-utils",
             "tsConfig": "libs/shared/config-utils/tsconfig.lib.json",
             "packageJson": "libs/shared/config-utils/package.json",
             "main": "libs/shared/config-utils/src/index.ts",
-            "assets": ["libs/shared/config-utils/*.md"]
+            "assets": [
+              "libs/shared/config-utils/*.md"
+            ]
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/shared/config-utils/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/shared/config-utils/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/config-utils"],
+          "outputs": [
+            "coverage/libs/shared/config-utils"
+          ],
           "options": {
             "jestConfig": "libs/shared/config-utils/jest.config.js",
             "passWithNoTests": true

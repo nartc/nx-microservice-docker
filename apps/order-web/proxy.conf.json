@@ -2,5 +2,10 @@
   "/api": {
     "target": "http://localhost:8877",
     "secure": false
+  },
+  "/socket.io": {
+    "target": "http://localhost:8877",
+    "secure": false,
+    "ws": true
   }
 }
