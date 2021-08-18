@@ -1,0 +1,84 @@
+name: Build and Push Docker images
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+env:
+  REGISTRY: ghcr.io
+  ACTOR: ${{ github.actor }}
+  SHOULD_PUSH: ${{ github.event_name != 'pull_request' }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Setup NodeJS
+        uses: actions/setup-node@v2
+      - run: npm ci
+      - run: npm run build:all
+      - name: Setup Docker BuildX
+        uses: docker/setup-buildx-action@v1
+      - name: Authenticate against Github CR
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ env.ACTOR }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+  build-docker-web:
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ env.ACTOR }}/order-web
+      - name: Build and Push Web Dockerfile
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./apps/order-web/dockerfile
+          push: ${{ env.SHOULD_PUSH }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+  build-docker-order:
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ env.ACTOR }}/order-api
+      - name: Build and Push Order API Dockerfile
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./apps/order-api/dockerfile
+          push: ${{ env.SHOULD_PUSH }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+  build-docker-payment:
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ env.ACTOR }}/payment-service
+      - name: Build and Push Payment Service Dockerfile
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./apps/payment-service/dockerfile
+          push: ${{ env.SHOULD_PUSH }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
