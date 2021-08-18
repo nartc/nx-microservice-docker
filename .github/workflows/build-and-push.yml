@@ -24,13 +24,13 @@ jobs:
 
       #      - name: Setup Docker BuildX
       #        uses: docker/setup-buildx-action@v1
-
-      - name: Authenticate against Github CR
-        uses: docker/login-action@v1
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ env.ACTOR }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+      #
+      #      - name: Authenticate against Github CR
+      #        uses: docker/login-action@v1
+      #        with:
+      #          registry: ${{ env.REGISTRY }}
+      #          username: ${{ env.ACTOR }}
+      #          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
@@ -45,15 +45,15 @@ jobs:
       - build
     runs-on: ubuntu-latest
     steps:
-      #      - name: Authenticate against Github CR
-      #        uses: docker/login-action@v1
-      #        with:
-      #          registry: ${{ env.REGISTRY }}
-      #          username: ${{ env.ACTOR }}
-      #          password: ${{ secrets.GITHUB_TOKEN }}
-      #
-      #      - name: Setup Docker BuildX
-      #        uses: docker/setup-buildx-action@v1
+      - name: Setup Docker BuildX
+        uses: docker/setup-buildx-action@v1
+
+      - name: Authenticate against Github CR
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ env.ACTOR }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download Artifacts
         uses: actions/download-artifact@v2
@@ -79,15 +79,15 @@ jobs:
       - build
     runs-on: ubuntu-latest
     steps:
-      #      - name: Authenticate against Github CR
-      #        uses: docker/login-action@v1
-      #        with:
-      #          registry: ${{ env.REGISTRY }}
-      #          username: ${{ env.ACTOR }}
-      #          password: ${{ secrets.GITHUB_TOKEN }}
-      #
-      #      - name: Setup Docker BuildX
-      #        uses: docker/setup-buildx-action@v1
+      - name: Setup Docker BuildX
+        uses: docker/setup-buildx-action@v1
+
+      - name: Authenticate against Github CR
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ env.ACTOR }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download Artifacts
         uses: actions/download-artifact@v2
@@ -113,15 +113,15 @@ jobs:
       - build
     runs-on: ubuntu-latest
     steps:
-      #      - name: Authenticate against Github CR
-      #        uses: docker/login-action@v1
-      #        with:
-      #          registry: ${{ env.REGISTRY }}
-      #          username: ${{ env.ACTOR }}
-      #          password: ${{ secrets.GITHUB_TOKEN }}
-      #
-      #      - name: Setup Docker BuildX
-      #        uses: docker/setup-buildx-action@v1
+      - name: Setup Docker BuildX
+        uses: docker/setup-buildx-action@v1
+
+      - name: Authenticate against Github CR
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ env.ACTOR }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Download Artifacts
         uses: actions/download-artifact@v2
