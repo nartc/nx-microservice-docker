@@ -98,7 +98,7 @@ export class OrdersStore extends ComponentStore<OrdersState> {
     order$.pipe(
       tap((order) => {
         this.patchState((state) => ({
-          orders: [...state.orders, order],
+          orders: [order, ...state.orders],
         }));
       })
     )
