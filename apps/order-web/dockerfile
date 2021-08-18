@@ -1,5 +1,6 @@
 FROM nginx:latest
 
+COPY ./apps/order-web/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 COPY ./dist/apps/order-web /usr/share/nginx/html
 
 EXPOSE 80

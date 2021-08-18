@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { BASE_PATH } from '@nx-microservice-docker/order-web/shared-data-access';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
@@ -24,11 +25,14 @@ import { routes } from './app.routes';
     NzTypographyModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    SocketIoModule.forRoot({
-      url: `${environment.orderApiProtocol}${environment.orderApiHost}:${environment.orderApiPort}`,
-    }),
+    SocketIoModule.forRoot({ url: '' }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: BASE_PATH,
+      useValue: '',
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

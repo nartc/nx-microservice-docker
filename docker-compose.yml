@@ -6,6 +6,9 @@ services:
       dockerfile: ./apps/order-web/dockerfile
     ports:
       - "8080:80"
+    depends_on:
+      - order
+      - payment
   order:
     build:
       context: .
