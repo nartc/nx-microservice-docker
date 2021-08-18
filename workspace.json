@@ -63,7 +63,7 @@
           "options": {
             "commands": [
               "nx run-many --target=serve --all --parallel",
-              "docker-compose -f docker-compose.local.yml up"
+              "docker-compose up"
             ]
           }
         }

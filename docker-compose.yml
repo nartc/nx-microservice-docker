@@ -1,37 +1,7 @@
 version: '3'
 services:
-  web:
-    build:
-      context: .
-      dockerfile: ./apps/order-web/dockerfile
-    ports:
-      - "8080:80"
-    depends_on:
-      - order
-      - payment
-  order:
-    build:
-      context: .
-      dockerfile: ./apps/order-api/dockerfile
-    ports:
-      - "8877:8877"
-    environment:
-      DB_HOST: mongo
-      PAYMENT_HOST: payment
-      ORDER_HOST: order
-    links:
-      - mongo
-  payment:
-    build:
-      context: .
-      dockerfile: ./apps/payment-service/dockerfile
-    ports:
-      - "8875:8875"
-    environment:
-      PAYMENT_HOST: payment
-      ORDER_HOST: order
   mongo:
     image: mongo
-    restart: always
+    restart: unless-stopped
     ports:
       - "27017:27017"

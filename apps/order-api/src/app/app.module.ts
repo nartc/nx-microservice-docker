@@ -12,7 +12,7 @@ import {
     OrderApiConfigFeatureModule,
     MongooseModule.forRootAsync({
       useFactory: (dbConfig: DbConfiguration) => ({
-        uri: `mongodb://${dbConfig.host}/`,
+        uri: dbConfig.uri,
         dbName: dbConfig.name,
       }),
       inject: [dbConfiguration.KEY],
